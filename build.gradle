@@ -1,0 +1,27 @@
+plugins {
+	id "java"
+	id "io.spring.dependency-management" version "1.0.11.RELEASE"
+	id "org.springframework.boot" version "2.5.1"					// spring boot
+	id "pl.allegro.tech.build.axion-release" version "1.13.2"		// adds versioning with tags
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation		"org.springframework.boot:spring-boot-starter-web"			// for REST API
+	implementation		"org.springframework.boot:spring-boot-starter-actuator"		// health check endpoints
+	implementation		"org.springframework.boot:spring-boot-starter-data-jpa"		// database communication
+	implementation		"org.springframework.boot:spring-boot-devtools"				// restart after changes
+	implementation		"org.springframework.boot:spring-boot-starter-validation"	// validate entities
+	implementation		group: "com.h2database", name: "h2", version: "1.4.200"
+	implementation 'junit:junit:4.13.1'// in-memory database
+	compileOnly			"org.projectlombok:lombok:1.18.20"							// annotation processor
+	annotationProcessor	"org.projectlombok:lombok:1.18.20"							// annotation processor
+	testImplementation	"org.springframework.boot:spring-boot-starter-test"			// testing
+}
+
+test {
+	useJUnitPlatform()
+}
